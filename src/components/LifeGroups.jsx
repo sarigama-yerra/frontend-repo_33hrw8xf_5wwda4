@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const API = import.meta.env.VITE_BACKEND_URL || ''
+const API = (import.meta.env.VITE_BACKEND_URL && import.meta.env.VITE_BACKEND_URL.replace(/\/$/, '')) || (typeof window !== 'undefined' ? window.location.origin.replace(':3000', ':8000') : '')
 
 export default function LifeGroups({ compact = false }) {
   const [groups, setGroups] = useState([])
@@ -40,6 +40,6 @@ function sample() {
   return [
     { name: 'Young Adults', leader: 'Sam & Riley', meeting_day: 'Tuesday', meeting_time: '7:00 PM', location: 'Downtown', description: 'Community, Scripture, and coffee.' },
     { name: 'Families', leader: 'Lee Family', meeting_day: 'Thursday', meeting_time: '6:30 PM', location: 'Eastside', description: 'Kids welcome! Dinner + discussion.' },
-    { name: 'Prayer & Worship', leader: 'Maya', meeting_day: 'Friday', meeting_time: '7:30 PM', location: 'Westside', description: 'Seeking Gods presence together.' },
+    { name: 'Prayer & Worship', leader: 'Maya', meeting_day: 'Friday', meeting_time: '7:30 PM', location: 'Westside', description: "Seeking God's presence together." },
   ]
 }

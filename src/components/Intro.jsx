@@ -6,7 +6,7 @@ export default function Intro() {
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight">A church for the next generation</h2>
             <p className="mt-4 text-black/70 leading-relaxed">
-              We are a community of ordinary people following Jesus together — learning, serving, and loving our city. Our mission is simple: encounter God, embrace people, and empower purpose. Whether youre exploring faith or looking for a home church, theres a place for you here.
+              We are a community of ordinary people following Jesus together — learning, serving, and loving our city. Our mission is simple: encounter God, embrace people, and empower purpose. Whether you're exploring faith or looking for a home church, there's a place for you here.
             </p>
             <ul className="mt-6 space-y-2 text-black/80">
               <li>• Jesus-centered teaching and worship</li>

@@ -29,7 +29,7 @@ export default function PrayerPage(){
       <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight">Prayer</h1>
-          <p className="mt-3 text-black/70 max-w-2xl">Share a request or read encouraging scriptures. God hears and God cares.</p>
+          <p className="mt-3 text-black/70 max-w-2xl">Share a request or read encouraging Scripture. God hears and God cares.</p>
           <form onSubmit={submit} className="mt-6 space-y-3">
             <input name="name" placeholder="Your name (optional)" className="w-full rounded-xl bg-black/5 px-4 py-3" />
             <input name="email" type="email" placeholder="Email (optional)" className="w-full rounded-xl bg-black/5 px-4 py-3" />
@@ -61,7 +61,7 @@ export default function PrayerPage(){
 
 function sample(){
   return [
-    { name: 'A friend', request: 'Please pray for peace and direction this week.', is_public: True },
-    { name: 'Anon', request: 'Healing for my grandmother.', is_public: True },
+    { name: 'A friend', request: 'Please pray for peace and direction this week.', is_public: true },
+    { name: 'Anon', request: 'Healing for my grandmother.', is_public: true },
   ]
 }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const API = import.meta.env.VITE_BACKEND_URL || ''
+const API = (import.meta.env.VITE_BACKEND_URL && import.meta.env.VITE_BACKEND_URL.replace(/\/$/, '')) || (typeof window !== 'undefined' ? window.location.origin.replace(':3000', ':8000') : '')
 
 export default function Contact() {
   const [status, setStatus] = useState('')
@@ -9,12 +9,16 @@ export default function Contact() {
     e.preventDefault()
     const form = new FormData(e.currentTarget)
     const payload = Object.fromEntries(form.entries())
-    const res = await fetch(`${API}/api/contact`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    setStatus(res.ok ? 'Thanks! We\'ll be in touch.' : 'Something went wrong.')
+    try {
+      const res = await fetch(`${API}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      setStatus(res.ok ? "Thanks! We'll be in touch." : 'Something went wrong.')
+    } catch (err) {
+      setStatus('Unable to reach server.')
+    }
     e.currentTarget.reset()
   }
 
@@ -24,7 +28,7 @@ export default function Contact() {
         <div className="grid md:grid-cols-2 gap-10">
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight">Contact Us</h2>
-            <p className="mt-2 text-white/70">Wed love to hear from you.</p>
+            <p className="mt-2 text-white/70">We'd love to hear from you.</p>
 
             <form onSubmit={submit} className="mt-6 space-y-3">
               <input name="name" required placeholder="Your name" className="w-full rounded-xl bg-white text-black px-4 py-3" />

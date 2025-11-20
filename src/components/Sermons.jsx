@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const API = import.meta.env.VITE_BACKEND_URL || ''
+const API = (import.meta.env.VITE_BACKEND_URL && import.meta.env.VITE_BACKEND_URL.replace(/\/$/, '')) || (typeof window !== 'undefined' ? window.location.origin.replace(':3000', ':8000') : '')
 
 export default function Sermons() {
   const [sermons, setSermons] = useState([])
